@@ -9,37 +9,37 @@
         android:orientation="horizontal"
         android:paddingLeft="5dp" >
         <TextView
-            android:id="@+id/TeamHome"
+            android:id="@+id/Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#677566"
             />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#677566"
             android:text="-"
-            />
+            android:textColor="#677566"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
-            android:id="@+id/TeamGuest"
+            android:id="@+id/HistorY"
+            android:layout_width="13dp"
+            android:layout_height="wrap_content"
+            android:textColor="#677566"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#677566"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#677566"
             android:text="      "
-            />
+            android:textColor="#677566"
+            android:textSize="20sp"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/TeamTotal"
             android:layout_width="wrap_content"

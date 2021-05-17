@@ -3,9 +3,9 @@
     <string name="hello">Hello World, SimpleDBActivity!</string>
     <string name="app_name">SimpleDB</string>
     <string name="title">Чемпионат мира по футболу</string>
-    <string name="teamhomefield">Команда хозяев</string>
-    <string name="teamguestfield">Команда гостей</string>
-    <string name="goalshomefield">Голы хозяев</string>
+    <string name="teamhomefield">Предмет</string>
+    <string name="teamguestfield">История</string>
+    <string name="goalshomefield">Год</string>
     <string name="goalsguestfield">Голы гостей</string>
     <string name="save">Сохранить</string>
     <string name="edit">Редактировать</string>

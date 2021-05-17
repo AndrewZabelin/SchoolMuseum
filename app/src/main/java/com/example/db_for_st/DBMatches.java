@@ -15,15 +15,15 @@ public class DBMatches {
     private static final String TABLE_NAME = "tableMatches";
 
     private static final String COLUMN_ID = "id";
-    private static final String COLUMN_TEAMHOME = "TeamНоme";
-    private static final String COLUMN_TEAMGUAST = "TeamGuest";
-    private static final String COLUMN_GOALSHOME = "GoalsHome";
+    private static final String COLUMN_NAME = "Name";
+    private static final String COLUMN_HISTORY = "History";
+    private static final String COLUMN_YEARS = "Years";
     private static final String COLUMN_GOALSGUAST = "GoalsGuast";
 
     private static final int NUM_COLUMN_ID = 0;
-    private static final int NUM_COLUMN_TEAMHOME = 1;
-    private static final int NUM_COLUMN_TEAMGUAST = 2;
-    private static final int NUM_COLUMN_GOALSHOME = 3;
+    private static final int NUM_COLUMN_NAME = 1;
+    private static final int NUM_COLUMN_HISTORY = 2;
+    private static final int NUM_COLUMN_YEARS = 3;
     private static final int NUM_COLUMN_GOALSGUEST = 4;
 
     private SQLiteDatabase mDataBase;
@@ -33,20 +33,20 @@ public class DBMatches {
         mDataBase = mOpenHelper.getWritableDatabase();
     }
 
-    public long insert(String teamhouse, String teamguest, int goalshouse, int goalsguest) {
+    public long insert(String name, String history, int years, int goalsguest) {
         ContentValues cv=new ContentValues();
-        cv.put(COLUMN_TEAMHOME, teamhouse);
-        cv.put(COLUMN_TEAMGUAST, teamguest);
-        cv.put(COLUMN_GOALSHOME, goalshouse);
+        cv.put(COLUMN_NAME, name);
+        cv.put(COLUMN_HISTORY, history);
+        cv.put(COLUMN_YEARS, years);
         cv.put(COLUMN_GOALSGUAST,goalsguest);
         return mDataBase.insert(TABLE_NAME, null, cv);
     }
 
     public int update(Matches md) {
         ContentValues cv=new ContentValues();
-        cv.put(COLUMN_TEAMHOME, md.getTeamhouse());
-        cv.put(COLUMN_TEAMGUAST, md.getTeamguest());
-        cv.put(COLUMN_GOALSHOME, md.getGoalshouse());
+        cv.put(COLUMN_NAME, md.getName());
+        cv.put(COLUMN_HISTORY, md.getHistory());
+        cv.put(COLUMN_YEARS, md.getYears());
         cv.put(COLUMN_GOALSGUAST,md.getGoalsguest());
         return mDataBase.update(TABLE_NAME, cv, COLUMN_ID + " = ?",new String[] { String.valueOf(md.getId())});
     }
@@ -63,9 +63,9 @@ public class DBMatches {
         Cursor mCursor = mDataBase.query(TABLE_NAME, null, COLUMN_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
 
         mCursor.moveToFirst();
-        String TeamHome = mCursor.getString(NUM_COLUMN_TEAMHOME);
-        String TeamGuest = mCursor.getString(NUM_COLUMN_TEAMGUAST);
-        int GoalsHome = mCursor.getInt(NUM_COLUMN_GOALSHOME);
+        String TeamHome = mCursor.getString(NUM_COLUMN_NAME);
+        String TeamGuest = mCursor.getString(NUM_COLUMN_HISTORY);
+        int GoalsHome = mCursor.getInt(NUM_COLUMN_YEARS);
         int GoalsGuest=mCursor.getInt(NUM_COLUMN_GOALSGUEST);
         return new Matches(id, TeamHome, TeamGuest, GoalsHome,GoalsGuest);
     }
@@ -78,9 +78,9 @@ public class DBMatches {
         if (!mCursor.isAfterLast()) {
             do {
                 long id = mCursor.getLong(NUM_COLUMN_ID);
-                String TeamHome = mCursor.getString(NUM_COLUMN_TEAMHOME);
-                String TeamGuest = mCursor.getString(NUM_COLUMN_TEAMGUAST);
-                int GoalsHome = mCursor.getInt(NUM_COLUMN_GOALSHOME);
+                String TeamHome = mCursor.getString(NUM_COLUMN_NAME);
+                String TeamGuest = mCursor.getString(NUM_COLUMN_HISTORY);
+                int GoalsHome = mCursor.getInt(NUM_COLUMN_YEARS);
                 int GoalsGuest=mCursor.getInt(NUM_COLUMN_GOALSGUEST);
                 arr.add(new Matches(id, TeamHome, TeamGuest, GoalsHome,GoalsGuest));
             } while (mCursor.moveToNext());
@@ -97,9 +97,9 @@ public class DBMatches {
         public void onCreate(SQLiteDatabase db) {
             String query = "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_TEAMHOME+ " TEXT, " +
-                    COLUMN_TEAMGUAST + " TEXT, " +
-                    COLUMN_GOALSHOME + " INT,"+
+                    COLUMN_NAME+ " TEXT, " +
+                    COLUMN_HISTORY + " TEXT, " +
+                    COLUMN_YEARS + " INT,"+
                     COLUMN_GOALSGUAST+" INT);";
             db.execSQL(query);
         }

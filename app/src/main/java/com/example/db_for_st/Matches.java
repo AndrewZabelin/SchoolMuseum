@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class Matches implements Serializable {
     private long id;
-    private String teamhouse;
-    private String teamguest;
-    private int goalshouse;
+    private String name;
+    private String history;
+    private int years;
     private int goalsguest;
 
-    public Matches(long id, String teamh, String teamg, int gh, int gg) {
+    public Matches(long id, String nm, String hs, int ye, int gg) {
         this.id = id;
-        this.teamhouse = teamh;
-        this.teamguest = teamg;
-        this.goalshouse = gh;
+        this.name = nm;
+        this.history = hs;
+        this.years = ye;
         this.goalsguest=gg;
     }
 
@@ -21,16 +21,16 @@ public class Matches implements Serializable {
         return id;
     }
 
-    public String getTeamhouse() {
-        return teamhouse;
+    public String getName() {
+        return name;
     }
 
-    public String getTeamguest() {
-        return teamguest;
+    public String getHistory() {
+        return history;
     }
 
-    public int getGoalshouse() {
-        return goalshouse;
+    public int getYears() {
+        return years;
     }
 
     public int getGoalsguest() {

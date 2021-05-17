@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 public class AddActivity extends Activity {
     private Button btSave,btCancel;
-    private EditText etTeamHome,etTeamGuest,etGoalsHome,etGoalsGuest;
+    private EditText etName,etHistory,etYears,etGoalsGuest;
     private Context context;
     private long MyMatchID;
     @Override
@@ -20,18 +20,18 @@ public class AddActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        etTeamHome=(EditText)findViewById(R.id.TeamHome);
-        etTeamGuest=(EditText)findViewById(R.id.TeamGuest);
-        etGoalsHome=(EditText)findViewById(R.id.GoalsHome);
+        etName=(EditText)findViewById(R.id.Name);
+        etHistory=(EditText)findViewById(R.id.HistorY);
+        etYears=(EditText)findViewById(R.id.YearS);
         etGoalsGuest=(EditText)findViewById(R.id.GoalsGuest);
         btSave=(Button)findViewById(R.id.butSave);
         btCancel=(Button)findViewById(R.id.butCancel);
 
         if(getIntent().hasExtra("Matches")){
             Matches matches=(Matches)getIntent().getSerializableExtra("Matches");
-            etTeamHome.setText(matches.getTeamhouse());
-            etTeamGuest.setText(matches.getTeamguest());
-            etGoalsHome.setText(Integer.toString(matches.getGoalshouse()));
+            etName.setText(matches.getName());
+            etHistory.setText(matches.getHistory());
+            etYears.setText(Integer.toString(matches.getYears()));
             etGoalsGuest.setText(Integer.toString(matches.getGoalsguest()));
             MyMatchID=matches.getId();
         }
@@ -42,7 +42,7 @@ public class AddActivity extends Activity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Matches matches=new Matches(MyMatchID,etTeamHome.getText().toString(),etTeamGuest.getText().toString(),                                                      Integer.parseInt(etGoalsHome.getText().toString()),                                                        Integer.parseInt(etGoalsGuest.getText().toString()));
+                Matches matches=new Matches(MyMatchID,etName.getText().toString(),etHistory.getText().toString(),Integer.parseInt(etYears.getText().toString()),Integer.parseInt(etGoalsGuest.getText().toString()));
                 Intent intent=getIntent();
                 intent.putExtra("Matches",matches);
                 setResult(RESULT_OK,intent);

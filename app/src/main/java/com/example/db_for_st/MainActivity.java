@@ -113,7 +113,7 @@ public class MainActivity extends Activity {
             if (requestCode == UPDATE_ACTIVITY)
                 mDBConnector.update(md);
             else
-                mDBConnector.insert(md.getTeamhouse(), md.getTeamguest(), md.getGoalshouse(), md.getGoalsguest());
+                mDBConnector.insert(md.getName(), md.getHistory(), md.getYears(), md.getGoalsguest());
             updateList();
         }
     }
@@ -157,15 +157,15 @@ public class MainActivity extends Activity {
             if (convertView == null)
                 convertView = mLayoutInflater.inflate(R.layout.item, null);
 
-            TextView vTeamHome= (TextView)convertView.findViewById(R.id.TeamHome);
-            TextView vTeamGuest = (TextView)convertView.findViewById(R.id.TeamGuest);
+            TextView vName= (TextView)convertView.findViewById(R.id.Name);
+            TextView vHistory = (TextView)convertView.findViewById(R.id.HistorY);
             TextView vTotal=(TextView)convertView.findViewById(R.id.TeamTotal);
 
 
             Matches md = arrayMyMatches.get(position);
-            vTeamHome.setText(md.getTeamhouse());
-            vTeamGuest.setText(md.getTeamguest());
-            vTotal.setText(md.getGoalshouse()+":"+md.getGoalsguest());
+            vName.setText(md.getName());
+            vHistory.setText(md.getHistory());
+            vTotal.setText(md.getYears()+":"+md.getGoalsguest());
 
             return convertView;
         }

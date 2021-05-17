@@ -54,7 +54,7 @@
                         android:text="@string/teamhomefield" />
 
                     <EditText
-                        android:id="@+id/TeamHome"
+                        android:id="@+id/Name"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text" />
@@ -72,7 +72,7 @@
                         android:text="@string/teamguestfield" />
 
                     <EditText
-                        android:id="@+id/TeamGuest"
+                        android:id="@+id/HistorY"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text" >
@@ -98,7 +98,7 @@
                         android:text="@string/goalshomefield" />
 
                     <EditText
-                        android:id="@+id/GoalsHome"
+                        android:id="@+id/YearS"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text" />
